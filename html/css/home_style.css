@@ -1,0 +1,56 @@
+.center {
+  display: flex;
+  justify-content: center;
+}
+#cc {
+  background-color: #f8b739;
+}
+#e img {
+  padding-top: 30px;
+  padding-bottom: 60px;
+}
+.cc1 {
+  color: white;
+  font-weight: 700;
+  font-size: 25px;
+  margin-top: -100px;
+}
+#robo_img {
+  margin-left: 110px;
+}
+#e {
+  width: 50%;
+}
+#but {
+  border: none;
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  padding: 12px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  width: 300px;
+}
+
+td {
+  overflow-x: hidden;
+}
+.first {
+  width: 520px;
+  padding-top: 50px;
+  position: relative;
+  animation-name: first_one;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes first_one {
+  0% {
+    left: -400px;
+  }
+
+  100% {
+    left: 1500px;
+  }
+}

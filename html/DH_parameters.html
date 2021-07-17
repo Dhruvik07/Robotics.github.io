@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+     <link data-vue-tag="ssr" rel="icon" type="image/png" sizes="96x96" href="images/logo.png" >
+    <title>Robotics Wikipedia</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+
+
+
+
+
+    <div class="wrapper d-flex align-items-stretch">
+
+        <nav id="sidebar">
+            <div class="p-4 pt-5 ">
+                <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(images/mL.jpeg);"></a>
+                <ul class="list-unstyled components mb-5">
+
+                    <!--Coordinate Transformation (Krutarth)-->
+                    <li>
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Coordinate Transformation </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="cordinate_frame.html">Coordinate Frames</a>
+                            </li>
+                            <li>
+                                <a href="Rot_matrix.html">Rotational Matrix</a>
+                            </li>
+                            <li>
+                                <a href="Trans.html">Transformation</a>
+                            </li>
+                            <li>
+                                <a href="translation.html">Translations</a>
+                            </li>
+                            <li>
+                                <a href="Euler.html">Euler Angles</a>
+                            </li>
+                            <li>
+                                <a href="Quat.html">Quaternion</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <!--forward kinematics (Smit)-->
+                    <li>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Forward Kinematics</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a href="Homogeneous.html">Homogeneous Transform</a>
+                            </li>
+                            <li>
+                                <a href="Compound.html"> Compound Transformations</a>
+                            </li>
+                            <li>
+                                <a href="jacobians.html">Jacobians</a>
+                            </li>
+                            <li>
+                                <a href="DH_parameters.html">Denavit-Hartenberg (D-H) Parameters</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <!--Inverse Kinematics (Dhruvik)-->
+                    <li>
+                        <a href="#Inverse_Kinematics" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inverse Kinematics</a>
+                        <ul class="collapse list-unstyled" id="Inverse_Kinematics">
+                            <li>
+                                <a href="General_dis.html">General discussion</a>
+                            </li>
+                            <li>
+                                <a href="Analytical.html">Analytical IK in 2D</a>
+                            </li>
+                            <li>
+                                <a href="find_parallel_robo.html">Finding all solutions for redundant and parallel robots</a>
+                            </li>
+                            <li>
+                                <a href="explain_video.html">Explaination Videos</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+
+            </div>
+        </nav>
+
+        <!-- Page navbar  -->
+
+
+
+
+        <div id="content" class="p-4 p-md-5 main-page smit">
+
+            <nav id="mainbar" class="navbar sticky-top navbar-expand-lg navbar-light bg-light uppernav_nanu ">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary slide_but">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu </span>
+              </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fa fa-bars"></i>
+              </button>
+                    <div class="navbar-header" style="margin-left: 25px;font-family: Arial">
+                        <a class="navbar-brand" href="#"><b>Robotics Wikipedia</b>
+                </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="home.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!--Page content-->
+
+
+            <!--DHPARAMETERS-->
+            <h1 id="Parameters" class="nav_up_sol">Denavit–Hartenberg Parameters</h1>
+
+            <p>A commonly used convention for selecting frames of reference in robotics applications is the Denavit and Hartenberg (D–H) convention which was introduced by Jacques Denavit and Richard S. Hartenberg. In this convention, coordinate frames are
+                attached to the joints between two links such that one transformation is associated with the joint, [Z], and the second is associated with the link [X]. The coordinate transformations along a serial robot consisting of n links form the
+                kinematics equations of the robot,</p>
+
+            <p>[T]=[Z<sub>1</sub>][X<sub>1</sub>][Z<sub>2</sub>][X<sub>2</sub>]....[X<sub>n-1</sub>][Z<sub>n</sub>][X<sub>n</sub>].</p>
+            where [T] is the transformation locating the end-link.
+
+            <p>In order to determine the coordinate transformations [Z] and [X], the joints connecting the links are modeled as either hinged or sliding joints, each of which have a unique line S in space that forms the joint axis and define the relative
+                movement of the two links. A typical serial robot is characterized by a sequence of six lines S<sub>i</sub>, i = 1,...,6, one for each joint in the robot. For each sequence of lines S<sub>i</sub> and S<sub>i+1</sub>, there is a common
+                normal line A<sub>i,i+1</sub>. The system of six joint axes S<sub>i</sub> and five common normal lines A<sub>i,i+1</sub> form the kinematic skeleton of the typical six degree of freedom serial robot. Denavit and Hartenberg introduced the
+                convention that Z coordinate axes are assigned to the joint axes S<sub>i</sub> and X coordinate axes are assigned to the common normals A<sub>i,i+1</sub>.</p>
+
+            <p>This convention allows the definition of the movement of links around a common joint axis S<sub>i</sub> by the screw displacement,</p>
+
+            <img class="all_matrix" src="images/dh1.png" />
+            <br>
+            <p>where θ<sub>i</sub> is the rotation around and di is the slide along the Z axis—either of the parameters can be constants depending on the structure of the robot. Under this convention the dimensions of each link in the serial chain are defined
+                by the screw displacement around the common normal A<sub>i,i+1</sub> from the joint S<sub>i</sub> to S<sub>i+1</sub>, which is given by</p>
+
+            <img class="all_matrix" src="images\dh2.png" alt="" />
+
+            <br>
+            <p>where α<sub>i,i+1</sub> and r<sub>i,i+1</sub> define the physical dimensions of the link in terms of the angle measured around and distance measured along the X axis.</p>
+
+            <p>In summary, the reference frames are laid out as follows:</p>
+
+            <ol>
+                <li>the z-axis is in the direction of the joint axis</li>
+                <li>the x-axis is parallel to the common normal: xn=z<sub>n</sub> x z<sub>n-1</sub> (or away from z<sub>n-1</sub>)</li>
+                If there is no unique common normal (parallel z axes), then d (below) is a free parameter. The direction of x<sub>n</sub> is from z<sub>n-1</sub> to z<sub>n</sub>, as shown in the video below.
+                <li>the y-axis follows from the x- and z-axis by choosing it to be a right-handed coordinate system.</li>
+
+                <h5>Four parameters</h5>
+                <img class="all_matrix" src="images/dh3.png" />
+                <br>
+
+
+                <p>The following four transformation parameters are known as D–H parameters:</p>
+                <ul>
+                    <li>d: offset along previous z to the common normal</li>
+                    <li><img src="https://latex.codecogs.com/gif.latex?\theta" /> : angle about previous z, from old x to new x</li>
+                    <li>r: length of the common normal (akaa, but if using this notation, do not confuse with <img src="https://latex.codecogs.com/gif.latex?\alpha" /> ). Assuming a revolute joint, this is the radius about previous z.</li>
+                    <li><img src="https://latex.codecogs.com/gif.latex?\alpha" /> : angle about common normal, from old z axis to new z axis</li>
+                </ul>
+
+                <p>A visualization of D–H parameterization is available:</p>
+                <iframe class="all_fig" width="560" height="315" src="https://www.youtube.com/embed/rA9tm0gTln8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <br><br>
+
+
+                <p>There is some choice in frame layout as to whether the previous x axis or the next x points along the common normal. The latter system allows branching chains more efficiently, as multiple frames can all point away from their common ancestor,
+                    but in the alternative layout the ancestor can only point toward one successor. Thus the commonly used notation places each down-chain x axis collinear with the common normal, yielding the transformation calculations shown below.</p>
+
+                <p>We can note constraints on the relationships between the axes:</p>
+                <ol>
+                    <li>the x<sub>n</sub>-axis is perpendicular to both the z<sub>n-1</sub> and z<sub>n</sub> axes</li>
+                    <li>the x<sub>n</sub>-axis intersects both z<sub>n-1</sub> and z<sub>n</sub> axes</li>
+                    <li>the origin of joint n is at the intersection ofx<sub>n</sub> and z<sub>n</sub></li>
+                    <li>y<sub>n</sub> completes a right-handed reference frame based onx<sub>n</sub> and z<sub>n</sub></li>
+                    <br>
+                    <h5>Denavit–Hartenberg matrix</h5>
+
+                    <p>It is common to separate a screw displacement into the product of a pure translation along a line and a pure rotation about the line,[5][6] so that</p>
+
+                    <img src="https://latex.codecogs.com/gif.latex?[Z_{i}]=Trans_{z_{i}}(d_{i})Rot_{z_{i}}(\theta_{i})" title="[Z_{i}]=Trans_{z_{i}}(d_{i})Rot_{z_{i}}(\theta_{i})" />
+
+                    <p>and,</p>
+
+                    <img src="https://latex.codecogs.com/gif.latex?[X_{i}]=Trans_{X_{i}}(r_{i,i&plus;1})Rot_{X_{i}}(\alpha_{i,i&plus;1})" title="[X_{i}]=Trans_{X_{i}}(r_{i,i+1})Rot_{X_{i}}(\alpha_{i,i+1})" />
+
+                    <p>Using this notation, each link can be described by a coordinate transformation from the concurrent coordinate system to the previous coordinate system.</p>
+
+                    <img src="https://latex.codecogs.com/gif.latex?^{n-1}T_{n}=Trans_{z_{n-1}}(d_{n})Rot_{z_{n-1}}Trans_{x_{n}}(r_{n})Rot_{x_{n}}(\alpha_{n})" title="^{n-1}T_{n}=Trans_{z_{n-1}}(d_{n})Rot_{z_{n-1}}Trans_{x_{n}}(r_{n})Rot_{x_{n}}(\alpha_{n})" />
+
+                    <p>Note that this is the product of two screw displacements, The matrices associated with these operations are:</p>
+
+                    <img class="all_fig" src="images\dh4.png" alt="">
+
+                    <p>where R is the 3×3 submatrix describing rotation and T is the 3×1 submatrix describing translation.</p>
+
+                    <p>In some books, the order of transformation for a pair of consecutive rotation and translation (such as d<sub>n</sub>and <img src="https://latex.codecogs.com/gif.latex?\theta_{n}" />) is replaced. However, because matrix multiplication
+                        order for such pair does not matter, the result is the same. For example:
+                        <img src="https://latex.codecogs.com/gif.latex?Trans_{z_{n-1}}(d_{n})Rot_{z_{n-1}}(\theta_{n}))=Rot_{z_{n-1}}(\theta_{n})Trans_{z_{n-1}}(d_{n})" title="Trans_{z_{n-1}}(d_{n})Rot_{z_{n-1}}(\theta_{n}))=Rot_{z_{n-1}}(\theta_{n})Trans_{z_{n-1}}(d_{n})" /></p>
+
+
+                    <!--*************************************************smit end************************************************************************************-->
+                    <br><br><br>
+                    <div class="next_prev">
+                        <a href="jacobians.html" id="prev_b">
+                            <b> <img width="10px" src="images/previous.png"/>
+       Previous</b>
+                        </a>
+                        <a href="General_dis.html" id="next_b">
+                            <b>Next <img  width="10px" src="images/next.png"/></b>
+                        </a>
+                    </div>
+
+
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+     <link data-vue-tag="ssr" rel="icon" type="image/png" sizes="96x96" href="images/logo.png" >
+    <title>Robotics Wikipedia</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+
+
+
+
+
+    <div class="wrapper d-flex align-items-stretch">
+
+        <nav id="sidebar">
+            <div class="p-4 pt-5 ">
+                <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(images/mL.jpeg);"></a>
+                <ul class="list-unstyled components mb-5">
+
+                    <!--Coordinate Transformation (Krutarth)-->
+                    <li>
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Coordinate Transformation </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="cordinate_frame.html">Coordinate Frames</a>
+                            </li>
+                            <li>
+                                <a href="Rot_matrix.html">Rotational Matrix</a>
+                            </li>
+                            <li>
+                                <a href="Trans.html">Transformation</a>
+                            </li>
+                            <li>
+                                <a href="translation.html">Translations</a>
+                            </li>
+                            <li>
+                                <a href="Euler.html">Euler Angles</a>
+                            </li>
+                            <li>
+                                <a href="Quat.html">Quaternion</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <!--forward kinematics (Smit)-->
+                    <li>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Forward Kinematics</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a href="Homogeneous.html">Homogeneous Transform</a>
+                            </li>
+                            <li>
+                                <a href="Compound.html"> Compound Transformations</a>
+                            </li>
+                            <li>
+                                <a href="jacobians.html">Jacobians</a>
+                            </li>
+                            <li>
+                                <a href="DH_parameters.html">Denavit-Hartenberg (D-H) Parameters</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <!--Inverse Kinematics (Dhruvik)-->
+                    <li>
+                        <a href="#Inverse_Kinematics" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inverse Kinematics</a>
+                        <ul class="collapse list-unstyled" id="Inverse_Kinematics">
+                            <li>
+                                <a href="General_dis.html">General discussion</a>
+                            </li>
+                            <li>
+                                <a href="Analytical.html">Analytical IK in 2D</a>
+                            </li>
+                            <li>
+                                <a href="find_parallel_robo.html">Finding all solutions for redundant and parallel robots</a>
+                            </li>
+                            <li>
+                                <a href="explain_video.html">Explaination Videos</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+
+            </div>
+        </nav>
+
+        <!-- Page navbar  -->
+
+
+
+
+        <div id="content" class="p-4 p-md-5 main-page smit">
+
+            <nav id="mainbar" class="navbar sticky-top navbar-expand-lg navbar-light bg-light uppernav_nanu ">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary slide_but">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu </span>
+              </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fa fa-bars"></i>
+              </button>
+                    <div class="navbar-header" style="margin-left: 25px;font-family: Arial">
+                        <a class="navbar-brand" href="#"><b>Robotics Wikipedia</b>
+                </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="home.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!--Page content-->
+
+
+            <!--JACOBIANS-->
+            <h1 id="Jacobians" class="nav_up_sol">Jacobians</h1>
+
+
+
+            <br>
+            <p>Jacobian is Matrix in robotics which provides the relation between joint velocities <img src="https://latex.codecogs.com/gif.latex?\dot{q}" title="\dot{X}=J\dot{q}" /> & end-effector velocities <img src="https://latex.codecogs.com/gif.latex?\dot{X}"
+                    title="\dot{X}=J\dot{q}" /> of a robot manipulator.</p>
+
+
+
+            <p>If the joints of the robot move with certain velocities then we might want to know with what velocity the endeffector would move. Here is where Jacobian comes to our help. The relation between joint velocities and end-effector velocities is
+                given as below,</p>
+
+            <img class="center" src="https://latex.codecogs.com/gif.latex?\dot{X}=J\dot{q}" title="\dot{X}=J\dot{q}" />
+
+            <p>where,
+                <br>
+                <img src="https://latex.codecogs.com/gif.latex?\dot{q}" title="\dot{X}=J\dot{q}" /> is the column matrix representing the joint velocities. Size of the this matrix is nx1. 'n' is the number of joints of the robot.
+                <br>
+                <img src="https://latex.codecogs.com/gif.latex?\dot{X}" title="\dot{X}=J\dot{q}" /> is the column matrix representing the end-effector velocities. Size of this matrix is mx1. 'm' is 3 for a planar robot and 6 for a spatial robot.
+                <br> J is the Jacobian matrix which is a function of the current pose . Size of jacobian matrix is m x n.</p>
+
+
+            <img class="all_fig" src="https://static.wixstatic.com/media/407007_9f50a139d27b4215a6b79bdc0a57a3b4~mv2.png/v1/fill/w_750,h_270,al_c,lg_1,q_85/407007_9f50a139d27b4215a6b79bdc0a57a3b4~mv2.webp">
+            <br>
+            <span class="under_fig">Fig. 1 A spatial  robot with n-joint/n-DOF</span>
+            <br> Let me write the above equation ( <img src="https://latex.codecogs.com/gif.latex?\dot{X}=J\dot{q}" title="\dot{X}=J\dot{q}" /> ) in expanded matrix form for a spatial robot for better understanding.
+            <br><br>
+            <img class="all_matrix" src="https://static.wixstatic.com/media/407007_204a593ef39343378cff18bc3ca06529~mv2.png/v1/fill/w_531,h_199,al_c,lg_1,q_85/407007_204a593ef39343378cff18bc3ca06529~mv2.webp">
+            <br>
+
+            <h4>Time to understand the Jacobian matrix.</h4>
+
+            ​
+
+            <p><b>Columns</b> of the Jacobian matrix are associated with joints of the robot. Each column in the Jacobian matrix represents the effect on end-effector velocities due to variation in each joint velocity.</p>
+
+
+
+            <p>Which means, the first column represents the effect of joint1 velocity ( <img src="https://latex.codecogs.com/gif.latex?\dot{q}_{1}" title="\dot{X}=J\dot{q}" /> ) on end-effector velocities ( <img src="https://latex.codecogs.com/gif.latex?\dot{X}"
+                    title="\dot{X}=J\dot{q}" /> ), second column is associated with joint2 velocity ( <img src="https://latex.codecogs.com/gif.latex?\dot{q}_{2}" title="\dot{X}=J\dot{q}" /> ) and similarly nth column is effect of nth joint velocity ( <img
+                    src="https://latex.codecogs.com/gif.latex?\dot{q}_{n}" title="\dot{X}=J\dot{q}" /> ) on end-effector velocities .</p>
+
+
+
+            <p>Hence the number of columns in the Jacobian matrix is equal to the number of joints in the manipulator.</p>
+
+            ​
+
+            <p>If we closely observe the <img src="https://latex.codecogs.com/gif.latex?\dot{X}" title="\dot{X}=J\dot{q}" /> matrix, it has two parts.The first three elements of the end-effector velocity matrix <img src="https://latex.codecogs.com/gif.latex?[\dot{x},&space;\dot{y},&space;\dot{z}]"
+                    title="[\dot{x}, \dot{y}, \dot{z}]" /> are linear velocities [rate of change of position] and the last three elements <img src="https://latex.codecogs.com/gif.latex?[\dot{\alpha&space;},&space;\dot{\beta&space;},&space;\dot{\gamma&space;}]"
+                    title="[\dot{\alpha }, \dot{\beta }, \dot{\gamma }]" /> are the angular velocites [rate of change of orientation] in (x,y,z) direction respectively.</p>
+
+
+
+            <p>Similarly, <b>rows</b> of the Jacobian matrix can also be split into two part. The first three rows are associated with linear velocities of end-effector and the last three rows are associated with the angular velocities of end-effector due
+                to change in velocities of all the joints combined.</p>
+
+            ​
+
+            <p>Hence we can call the upper part of the Jacobian matrix as Linear velocity Jacobian ( J<sub>v</sub> ) and the lower part as Angular velocity Jacobian ( J<sub>w</sub> ). </p>
+            <br>
+            <img class="center" src="https://latex.codecogs.com/gif.latex?J=\begin{bmatrix}&space;J_{v}\\&space;J_{w}\\&space;\end{bmatrix}_{6\times&space;n}" title="J=\begin{bmatrix} J_{v}\\ J_{w}\\ \end{bmatrix}_{6\times n}" />
+            <br>
+
+            <h4>Now let's see how to derive a Jacobian matrix of robotic manipulator.</h4>
+
+            ​
+
+            <p>Methods to derive J<sub>v</sub> and J<sub>w</sub> are different. We will find them separately and later combine to get our final Jacobian matrix.</p>
+
+            ​
+
+            <h5>Finding J<sub>v</sub> :</h5>
+            <br>
+
+            <p>We all know from our elementary physics class that velocity is nothing but the first order derivative of position.Since J<sub>v</sub> is related to linear velocities of the end-effector due to joint velocities, we can get the J<sub>v <sup>'</sup>   </sub>                by derivating the position functions for x, y and z of the end-effector w.r.t joint variables [ q<sub>1</sub>, q<sub>2</sub>, q<sub>3</sub>...........q<sub>n</sub> ] as shown below.</p>
+
+            <img class="all_matrix" src="https://static.wixstatic.com/media/407007_cff817cc6dde4137b9f0d9079d477692~mv2.png/v1/fill/w_460,h_175,al_c,lg_1,q_85/407007_cff817cc6dde4137b9f0d9079d477692~mv2.webp" />
+            <br>
+
+            <p>I guess by now a question would be running in your mind. Where from in this world we will get the functions for x, y and z.</p>
+
+            <p>I will give you a hint. The hint is Forward Kinematics.</p>
+
+            <p>Yes you have got it right. The last column of the Transform matrix T<sub>b-ee</sub> will provide us the functions for the position of end-effector.</p>
+
+            <p>We are half way through finding the Jacobian Matrix.</p>
+
+            <p>Lets find the second part.</p>
+
+            <br>
+            <h5>Finding J<sub>w</sub> :</h5>
+
+            ​<br>
+
+            <p>J<sub>w</sub> is related to the angular velocities of the end-effector. Again from our high school physic, we know that angular velocity ( <img src="https://latex.codecogs.com/gif.latex?\omega" title="\omega" /> ) is pseudo vector and is given
+                by the product of axis of rotation ( <img src="https://latex.codecogs.com/gif.latex?\widehat{\omega&space;}" title="\widehat{\omega }" /> ) and rate of rotation ( <img src="https://latex.codecogs.com/gif.latex?\dot{\theta}" title="\omega"
+                /> ) about the axis as shown in the below fig 2.</p>
+
+            <img class="center" src="https://latex.codecogs.com/gif.latex?\omega&space;=\widehat{\omega&space;}&space;\dot{\theta}" title="\omega =\widehat{\omega } \dot{\theta}" />
+            <img class="all_matrix" style="width: 30vh;" src="https://static.wixstatic.com/media/407007_6ab819aee00c457ba60cdfd421c30e5f~mv2.png/v1/fill/w_231,h_199,al_c,lg_1,q_85/407007_6ab819aee00c457ba60cdfd421c30e5f~mv2.webp">
+            <span class="under_fig">Fig. 2 A disk rotating  about the axis <img src="https://latex.codecogs.com/gif.latex?\widehat{\omega&space;}" title="\widehat{\omega }" />    with velocity <img src="https://latex.codecogs.com/gif.latex?\dot{\theta}" title="\omega" />   radians/sec</span>
+            <br><br>
+
+            <img src="https://latex.codecogs.com/gif.latex?\widehat{\omega&space;}" title="\widehat{\omega }" /> is a unit vector representing the axis of rotation in 3D space. It is written in the below form,<br><br>
+            <img class="center" src="https://latex.codecogs.com/gif.latex?\widehat{\omega&space;}&space;=a_{1}&space;\widehat{x}&plus;a_{2}\widehat{y}&plus;a_{3}\widehat{z}" title="\widehat{\omega } =a_{1} \widehat{x}+a_{2}\widehat{y}+a_{3}\widehat{z}" /><br>            Thus this unit vector can be represented as a 3x1 matrix as shown below,<br><br>
+            <img class="center" src="https://latex.codecogs.com/gif.latex?\widehat{\omega&space;}&space;=&space;\begin{bmatrix}&space;a_{1}\\&space;a_{2}\\&space;a_{3}&space;\end{bmatrix}" title="\widehat{\omega } = \begin{bmatrix} a_{1}\\ a_{2}\\ a_{3} \end{bmatrix}"
+            /> Henceforth, angular velocity can be represented in matrix form as below<br><br> Angular velocity, <img src="https://latex.codecogs.com/gif.latex?\omega&space;=&space;\begin{bmatrix}&space;a_{1}\\&space;a_{2}\\&space;a_{3}&space;\end{bmatrix}.\dot{\theta}"
+                title="\omega = \begin{bmatrix} a_{1}\\ a_{2}\\ a_{3} \end{bmatrix}.\dot{\theta}" />
+
+            <p>I have represented angular velocity in vector form to show you a similarity with Jacboian matrix in (*) equation above and make it simpler to find the J<sub>w</sub> matrix.</p>
+
+            <p>If we observe (*) equation, rate of rotation of all joints (joint velocities <img src="https://latex.codecogs.com/gif.latex?\dot{q_{1}},\dot{q_{2}},\dot{q_{3}},....\dot{q_{n}}" title="\dot{q_{1}},\dot{q_{2}},\dot{q_{3}},....\dot{q_{n}}" />                ) are already present in the [ <img src="https://latex.codecogs.com/gif.latex?\dot{q}" /> ] matrix. So the only missing component to find the angular velocities of the end-effector is the axis of rotation information of each joint. This
+                information, i.e., joint axes of all joints, is what jw matrix is all about.</p>
+            ​
+            <p>Now there is a twist here in finding the joints axes . All joint axes in Jw are w.r.t base frame, not from the local frame. </p>
+
+            <p>Confused....??</p>
+
+            <p>Don't worry the below example will make things much clearer.</p>
+
+            <p>Look at the below fig 3. It is n link spatial manipulator. I have taken 3 joints i, j and k to explain you how to find the joint axes w.r.t base frame.</p>
+
+            <p>As the first job, I have attached frames to the links and lets say I have found the forward kinematics also.</p>
+
+            <p>The frames {i}, {j}, {k} are the local frames and {b} is the base frame to joints i, j and k respectively</p>.
+
+            <img class="all_fig" src="https://static.wixstatic.com/media/407007_8f4e84916d54458881cf29809a8e27a5~mv2.png/v1/fill/w_585,h_270,al_c,lg_1,q_85/407007_8f4e84916d54458881cf29809a8e27a5~mv2.webp" />
+            <br>
+            <span class="under_fig">Fig. 3 A n-link Spatial manipulator with {b}, {i}, {j}, {k} focused </span>
+            <br><br>
+            <p>From fig 3 it is clear that joint i is rotating about z-axis of the local frame {i}, joint j about x-axis of local frame {j} and joint k about y-axis of local frame {k}. So the joint axes of joint i, j and k within their local frames are represented
+                as below.</p>
+            <img class="all_fig" src="images/jaco1.png" />
+            <br>
+
+            <p>Finding the axis of the joint in the local frames looks easy right.</p>
+
+            ​
+
+            <p>But we need the joint axis w.r.t to base frame {b} and finding this is not that straight forward. We have to pre-multiply the local joint axes <img src="https://latex.codecogs.com/svg.latex?\widehat{\omega}_{i}^{i},\widehat{\omega}_{j}^{j},\widehat{\omega}_{k}^{k}"
+                    title="\widehat{\omega}_{i}^{i},\widehat{\omega}_{j}^{j},\widehat{\omega}_{k}^{k}" /> with the rotation matrices R<sub>bi</sub>,R<sub>bj</sub>,R<sub>bk</sub> respectively to get the joint axes w.r.t to base frame. </p>
+
+            <img class="all_fig" src="images/jaco2.png" />
+            <br>
+
+            <p>Looks tough right...?</p>
+
+
+
+            <p>But don't worry, we need not do the above multiplications to find the joint axes w.r.t frame {b}, there is a trick to find them easily.</p>
+
+
+
+            <p>These joint axes information is already present in one of the first three columns of the transform matrices T<sub>bi</sub>, T<sub>bj</sub> and T<sub>bk</sub> (T<sub>bi</sub> , T<sub>bj</sub> and T<sub>bk</sub> matrices would have been already
+                derived while finding the forward kinematics). We just need to know the right column to look at. The right column information is provided by the axis of joint in local frame.</p>
+
+            ​
+
+            <p>If the axis of rotation of joint in local frame is x, then first column of T<sub>b?</sub> matrix is joint axis w.r.t base frame. Similarly, second column of T<sub>b?</sub> for y-axis and third column for z-axis [Ignore the 0]</p>
+
+            <p>So we can get the joint axes <img src="https://latex.codecogs.com/svg.latex?\widehat{\omega}_{i}^{i},\widehat{\omega}_{j}^{j},\widehat{\omega}_{k}^{k}" title="\widehat{\omega}_{i}^{i},\widehat{\omega}_{j}^{j},\widehat{\omega}_{k}^{k}" /> from
+                T
+                <sub>bi</sub> , T<sub>bj</sub> and T<sub>bk</sub> as shown below.</p>
+            <img class="all_fig" style="width:100vh" src="images/jaco3.png" /> Isn't that simple. Since we already know all the transform matrices from base to end-effector while finding the forward kinematics of our robot, therefore we have all joint
+            axes w.r.t base frame information beforehand. ​ So all we need to do is group all these joint axes from joint-1 to joint-n [ <img src="https://latex.codecogs.com/svg.latex?\widehat{\omega}_{1}^{b},\widehat{\omega}_{2}^{b}....&space;\widehat{\omega}_{n}^{b}"
+                title="\widehat{\omega}_{1}^{b},\widehat{\omega}_{2}^{b}.... \widehat{\omega}_{n}^{b}" /> ] to get the J<sub>w</sub> matrix.
+            <br>
+            <img class="center" src="https://latex.codecogs.com/svg.latex?J_{w}=\begin{bmatrix}&space;\widehat{\omega}_{1}^{b}&&space;\widehat{\omega}_{2}^{b}&space;&&space;\widehat{\omega}_{3}^{b}&space;&&space;...&...&space;&&space;\widehat{\omega}_{n}^{b}&space;\end{bmatrix}_{3\times&space;n}"
+                title="J_{w}=\begin{bmatrix} \widehat{\omega}_{1}^{b}& \widehat{\omega}_{2}^{b} & \widehat{\omega}_{3}^{b} & ...&... & \widehat{\omega}_{n}^{b} \end{bmatrix}_{3\times n}" />
+            <br>
+            <p>Finally....!! we have J<sub>v</sub> and J<sub>w</sub>. So we just have to stack them to get the complete Jacobian matrix.</p>
+            <br>
+            <img class="all_matrix" src="https://static.wixstatic.com/media/407007_9fe5a19d408c427cbf13cb4103467bf9~mv2.png/v1/fill/w_416,h_205,al_c,lg_1,q_85/407007_9fe5a19d408c427cbf13cb4103467bf9~mv2.webp" />
+
+
+
+            <br><br>
+            <h4>Jacobian Inversion Method:</h4>
+
+            ​
+
+            <p>This method of inverse kinematics can be applied in two ways based on the type of joint actuators.</p>
+
+            <p><b>Method 1:</b> For the robots with velocity controlled joint actuators.</p>
+
+            <p><b> Method 2:</b> For the robots with position controlled joint actuators.</p>
+
+            ​
+
+            <p>Before going to learn about the above two methods, lets re-frame the question and see what all values we know and what needs to be derived.</p>
+
+            ​
+
+            <p>Q) Lets say we have n- link spatial robot as shown in below fig 4. The robot is at some random pose at this moment. Now the task is to move the end-effector of the robot to a given goal pose., T<sub>g</sub> w.r.t base.</p>
+            <br>
+            <img class="all_matrix" src="https://static.wixstatic.com/media/407007_f33693fedc4849b68691e282f00f0eab~mv2.png/v1/fill/w_331,h_200,al_c,lg_1,q_85/407007_f33693fedc4849b68691e282f00f0eab~mv2.webp" alt="">
+            <br>
+            <span class="under_fig">Fig. 4 A n-link Spatial manipulator</span>
+            <br><br>
+
+            <p>We can know joint position values [q1, q2, q3, ...., qn] of the current pose through the sensors (joint encoders) present at each joint. Hence we can get the Transformation matrix of the end-effector w.r.t base using FK. Lets call this transform
+                matrix as T<sub>c</sub>. </p>
+
+            <p>Since we have worked so hard to understand Jcobian matrix. By know we can derive Jacobian matrix. So we also know J matrix as the function of joint position values [q1, q2, q3, ...., qn].</p>
+
+            <p>T<sub>g</sub> is given goal pose, so we know T<sub>g</sub> as well.</p>
+
+            ​
+
+            <br>Let me put all the known things in one frame.<br>
+
+            <ol>
+                <li> Current Joint positions, q=[q1,q2,....qn]<sup>T</sup></li>
+
+                <li> Current end-effector position and orientation, T<sub>c</sub>. From this T<sub>c</sub> matrix we can get the <img src="https://latex.codecogs.com/gif.latex?X_{c}=\begin{bmatrix}&space;x_{c}&space;&&space;y_{c}&space;&z_{c}&&space;\alpha&&space;\beta&space;&\gamma&space;\end{bmatrix}^{T}"
+                        title="X_{c}=\begin{bmatrix} x_{c} & y_{c} &z_{c}& \alpha& \beta &\gamma \end{bmatrix}^{T}" /></li>
+
+                <li> Goal position and orientation of end-effector T<sub>g</sub> (or) X<sub>g</sub></li>
+
+                <li> Jacobian matrix [J] as function of current joint values.</li>
+            </ol>
+
+            ​
+
+            <p>Now lets see how to accomplish this task using Jacobian Inversion Method.</p>
+
+            ​
+
+            <p>
+                <h5>Method 1:</h5>
+            </p>
+
+            ​
+
+            <p>Since Jacobian gives a direct relation between end-effector velocities ( <img src="https://latex.codecogs.com/gif.latex?\dot{X}" title="\omega" />) and joint velocities (<img src="https://latex.codecogs.com/gif.latex?\dot{q}" title="\omega"
+                />) , the solution to inverse kinematics problem for a robot accepting velocity commands (radians/sec) is straight forward. All we need to do is to compute the end-effector velocities and Jacobian inverse. Finally find the joint velocities
+                using below equation</p>
+            <br>
+            <img class="center" src="https://latex.codecogs.com/gif.latex?\dot{q}=J^{-1}\dot{X}" title="\dot{q}=J^{-1}\dot{X}" />
+
+            <p>Once we found the joint velocities, feed them to the joint actuators. In given time the end-effector will reach the desired goal pose. Once the goal pose is reached send 0 velocity commands to all the joint actuators to stop further movement
+                of the robot.</p>
+
+            <p>That's all, our task of getting the end-effector to the desired pose is completed.</p>
+
+            <p>Lets write an algorithm for this method.</p>
+
+            <p><b>Step 1:</b> Find <img src="https://latex.codecogs.com/gif.latex?\bigtriangleup&space;X" title="\bigtriangleup X" />.</p>
+
+            <img class="center" src="https://latex.codecogs.com/gif.latex?\bigtriangleup&space;X&space;=&space;X_{g}-X_{c}" title="\bigtriangleup X = X_{g}-X_{c}" />
+
+            <p><b>Step 2:</b> Convert <img src="https://latex.codecogs.com/gif.latex?\bigtriangleup&space;X" title="\bigtriangleup X" /> into velocity X .</p>
+
+            <img class="center" src="https://latex.codecogs.com/gif.latex?\dot{X}=p.\bigtriangleup&space;X" title="\dot{X}=p.\bigtriangleup X" /> (where p is simply a proportionality constant which decides the speed of the end-effector to reach the target
+            pose.)
+            <br><br>
+            <p><b>Step 3:</b> Using the current joint position values [q<sub>1</sub>,q<sub>2</sub>,q<sub>3</sub>................q<sub>n</sub> ], find the numerical value of Jacbian matrix.</p>
+
+            <p><b>Step 4:</b> Find the pseudo inverse ( J<sup>+</sup> ) of the Jacobian matrix. (why pseudo inverse is discussed in the section Singularities).</p>
+
+            <p><b>Step 5:</b> Compute <img src="https://latex.codecogs.com/gif.latex?\dot{q}" title="\dot{X}=p.\bigtriangleup X" /> using the below equation and feed the velocity commands to the joint actuators.</p>
+
+            <img class="center" src="https://latex.codecogs.com/gif.latex?\dot{q}=J^{&plus;}\dot{&space;X}" title="\dot{q}=J^{+}\dot{ X}" />
+
+            <p><b>Step 6:</b> Finally, track the pose of the end-effector and stop the joint actuator's movement once the goal pose is reached (i.e., <img src="https://latex.codecogs.com/gif.latex?\bigtriangleup&space;X" title="\bigtriangleup X" /> = 0).</p>
+
+            <p>
+                <h5>Method 2:</h5>
+            </p>
+
+            ​
+            <p> This method is applied to the robots whose joint actuators accepts position commands (radians). Which means we have to find new q<sub>new</sub> values (instead of <img src="https://latex.codecogs.com/gif.latex?\dot{q}" title="\dot{X}=p.\bigtriangleup X"
+                />) and feed them to joint actuators. Hence the Jacobian velocities equation cannot be used directly for this robots.</p>
+
+            <p>So we have to now make a relation between end-effector displacement and joint positions instead of their velocities. The same Jacobian equation can be used for displacement domain also but it only holds good for small displacements.</p>
+            <img class="center" src="https://latex.codecogs.com/gif.latex?\delta&space;p=J^{-1}\delta&space;X" title="\delta p=J^{-1}\delta X" />
+
+            <p>Whats "small displacement"..? There is no general recipe for that. It depends on the physical structure of the robots.</p>
+
+            <p>So we make <img src="https://latex.codecogs.com/gif.latex?\bigtriangleup&space;X" title="\bigtriangleup X" /> a small displacement by multiplying it with some fraction value 'f' and using the above equation we get <img src="https://latex.codecogs.com/gif.latex?\delta&space;q"
+                    title="\delta p=J^{-1}\delta X" />. This <img src="https://latex.codecogs.com/gif.latex?\delta&space;q" title="\delta p=J^{-1}\delta X" /> is added to the q to get the q<sub>new</sub> values. Now the q<sub>new</sub> values are given to
+                joint actuators. Hence the end-effector move little closer to the goal pose.</p>
+
+            <p>Again <img src="https://latex.codecogs.com/gif.latex?\bigtriangleup&space;X" title="\bigtriangleup X" /> is computed with the new T<sub>c</sub> & given goal T<sub>g</sub> and further q<sub>n</sub> values are computed in the same way. This
+                is a iterative method. In each iteration end-effector gets closer-n-closer to the goal pose. Hence this is repeated until the goal pose is reached (i.e.,<img src="https://latex.codecogs.com/gif.latex?\bigtriangleup&space;X" title="\bigtriangleup X"
+                /> =0). </p>
+
+            ​
+
+            <p><b>Algorithm for this method</b></p>
+
+            <p><b>Step 1:</b> Find <img src="https://latex.codecogs.com/gif.latex?\bigtriangleup&space;X" title="\bigtriangleup X" /> .</p>
+
+            <img class="center" src="https://latex.codecogs.com/gif.latex?\bigtriangleup&space;X&space;=&space;X_{g}-X_{c}" title="\bigtriangleup X = X_{g}-X_{c}" />
+
+            <p><b>Step 2:</b> Multiply <img src="https://latex.codecogs.com/gif.latex?\bigtriangleup&space;X" title="\bigtriangleup X" /> with some fraction 'f' to make the displacement small </p>
+
+            <img class="center" src="https://latex.codecogs.com/gif.latex?\delta&space;X=f\bigtriangleup&space;X" title="\delta X=f\bigtriangleup X" /> ( where f is a fractional value and it is empirical.)
+
+            <p><b>Step 3:</b> Using the current joint position values [q<sub>1</sub>,q<sub>2</sub>,q<sub>3</sub>................q<sub>n</sub> ], find the numerical value of Jacbian matrix.</p>
+
+            <p><b>Step 4:</b> Find the pseudo inverse ( J<sup>+</sup> ) of the Jacobian matrix. (why pseudo inverse is discussed in the section Singularities).</p>
+
+            <p><b>Step 5:</b> Compute <img src="https://latex.codecogs.com/gif.latex?\delta" />q using the below equation.</p>
+
+            ​<img class="center" src="https://latex.codecogs.com/gif.latex?\delta&space;q&space;=J^{&plus;}&space;\delta&space;X" title="\delta q =J^{+} \delta X" /> ​
+
+            <p><b>Step 6:</b> Add dq to the current joint positions to get new joint position values</p>
+
+            <img class="center" src="https://latex.codecogs.com/gif.latex?q_{new}=q&plus;\delta&space;q" title="q_{new}=q+\delta q" />
+
+            <p><b>Step 7:</b> Feed the new joint positions q<sub>new</sub> to the joint actuators and find the new T<sub>c</sub> and X<sub>c</sub> .</p>
+
+            <p><b>Step 8:</b> Repeat 1 to 7 until<img src="https://latex.codecogs.com/gif.latex?\bigtriangleup&space;X" title="\bigtriangleup X" /> =0.</p>
+
+            <p>Finally.....!!! we now know what is a Jacobian and how it is used to solve the inverse kinematics problem.</p>
+
+            <p>But we are not done yet. We only know the bright side of Jacobian method. Now lets talk about the dark side.</p>
+
+            ​
+            <h5>Problems with Jacobian Method:</h5>
+
+            <p>Finding IK using this method involves matrix inversion. As we all know matrix inversion is not always easy and may not be possible in some cases. There are two such cases in this method where we would be facing trouble to find the inverse
+                of J matrix.</p>
+
+            <ol>
+                <li>
+                    <p>When the Jacobian matrix is <b>not a square matrix.</b></p>
+
+                    <p>Can you guess for which robots the Jacobian matrix is not square..?</p>
+
+                    <p>For the robots which has number of joints less than or greater than 6 but not exactly 6. i.e., when the robot is under-actuated or a redundant robot, the Jacobian matrix is not square.</p>
+                </li>
+
+                <li>
+                    <p>When the robot is at <b>Singularity</b>.</p>
+
+                    <p>There can be some pose of the robot where inverse may not be possible. This pose is know as singular configuration.</p>
+
+                    <p>At singular configuration, Jacobian matrix loses its Rank, determinant of Jacobian becomes zero and inverse does not exits. Which physically means that the robot has lost a DOF. This usually happens when the end-effectoat the edges
+                        of the workspace i.e., when the robot is fully stretched.</p>
+
+                    <p>However being in a singularity is not as bad as being very close to the singularity. When the robot is near to the singular configuration, it starts to behave abnormally when using this method.</p>
+
+                    <p>This is because when the robot is approaching to singular configuration, the Jacobian inversion method will compute and produce lager joint velocities or delta q which is not acceptable. Asking for some finite movement in end-effector
+                        space can result in very very large, potentially infinite, movement in joint space which can have unpredictable results.</p>
+
+                    <p>So while controlling our robot we have to make sure that our robot does not go into singular configuration and even more importantly we have to be careful not to approach singularities.</p>
+                </li>
+            </ol>
+            <p>In Mathematics there is a solution to every problem. Luckily we have a common solution for both the problems mentioned above.</p>
+
+            <h5>Solution to the Problems:</h5>
+
+            <p>The solution is using <b>Pseduo inverse ( J<sup>+</sup>  )</b> of the Jacobian matrix obtained by the Moore-Penrose matrix inversion instead of J<sup>-1</sup>. </p>
+            <ol>
+                <li> This method uses <b>Singular value decomposition</b> to find the inverse of a non square matrix which is the solution to the first problem.</li>
+
+                <li>The inverse of a singular or non-invertible matrix is also possible with this method. And adiitionally the joint velocities or the delta q computed using pseudo inverse wont allow any additional movement towards the singularity but will
+                    allow any movement that doesn't get us any closer to the singularity. This solves our second problem of singularities.</li>
+            </ol>
+            <p>Ta-Daa.....!! So we can happily use the jacobian invesion method to find the IK of the robot without any worries.</p>
+
+            <p>But I know you are still worried of one thing. That is how to find the Pseudo inverse of the Jacobian matrix. Isn't it..?</p>
+
+            <p>Well we are not going to discuss about the derivation of J+ from J matrix. Because, in practice we don't have to compute this by hand. Since the pseudo inverse is a very commonly used concept in linear algebra, almost any linear algebra library
+                will have a function to compute it.</p>
+
+            <p>For example in python the pseudo inverse can b is found using below api in numpy lib.</p>
+
+            J<sup>+</sup>=numpy.linalg.pinv(J,e)
+
+
+            <p>Phew......!!! This ends our topic on Jacobian.</p>
+
+            <br><br><br>
+            <div class="next_prev">
+                <a href="Compound.html" id="prev_b">
+                    <b> <img width="10px" src="images/previous.png"/>
+       Previous</b>
+                </a>
+                <a href="DH_parameters.html" id="next_b">
+                    <b>Next <img  width="10px" src="images/next.png"/></b>
+                </a>
+            </div>
+
+
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+</body>
+
+</html>

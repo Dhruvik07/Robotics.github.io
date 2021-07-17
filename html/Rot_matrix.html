@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+     <link data-vue-tag="ssr" rel="icon" type="image/png" sizes="96x96" href="images/logo.png" >
+    <title>Robotics Wikipedia</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+
+
+
+
+
+    <div class="wrapper d-flex align-items-stretch">
+
+        <nav id="sidebar">
+            <div class="p-4 pt-5 ">
+                <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(images/mL.jpeg);"></a>
+                <ul class="list-unstyled components mb-5">
+
+                    <!--Coordinate Transformation (Krutarth)-->
+                    <li>
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Coordinate Transformation </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="cordinate_frame.html">Coordinate Frames</a>
+                            </li>
+                            <li>
+                                <a href="Rot_matrix.html">Rotational Matrix</a>
+                            </li>
+                            <li>
+                                <a href="Trans.html">Transformation</a>
+                            </li>
+                            <li>
+                                <a href="translation.html">Translations</a>
+                            </li>
+                            <li>
+                                <a href="Euler.html">Euler Angles</a>
+                            </li>
+                            <li>
+                                <a href="Quat.html">Quaternion</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <!--forward kinematics (Smit)-->
+                    <li>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Forward Kinematics</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a href="Homogeneous.html">Homogeneous Transform</a>
+                            </li>
+                            <li>
+                                <a href="Compound.html"> Compound Transformations</a>
+                            </li>
+                            <li>
+                                <a href="jacobians.html">Jacobians</a>
+                            </li>
+                            <li>
+                                <a href="DH_parameters.html">Denavit-Hartenberg (D-H) Parameters</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <!--Inverse Kinematics (Dhruvik)-->
+                    <li>
+                        <a href="#Inverse_Kinematics" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inverse Kinematics</a>
+                        <ul class="collapse list-unstyled" id="Inverse_Kinematics">
+                            <li>
+                                <a href="General_dis.html">General discussion</a>
+                            </li>
+                            <li>
+                                <a href="Analytical.html">Analytical IK in 2D</a>
+                            </li>
+                            <li>
+                                <a href="find_parallel_robo.html">Finding all solutions for redundant and parallel robots</a>
+                            </li>
+                            <li>
+                                <a href="explain_video.html">Explaination Videos</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+
+            </div>
+        </nav>
+
+        <!-- Page navbar  -->
+
+
+
+
+        <div id="content" class="p-4 p-md-5 main-page smit">
+
+            <nav id="mainbar" class="navbar sticky-top navbar-expand-lg navbar-light bg-light uppernav_nanu ">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary slide_but">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu </span>
+              </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fa fa-bars"></i>
+              </button>
+                    <div class="navbar-header" style="margin-left: 25px;font-family: Arial">
+                        <a class="navbar-brand" href="#"><b>Robotics Wikipedia</b>
+                </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="home.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!--Page content-->
+
+            <h3 id=Rot_matrix class="nav_up_sol">Rotational Matrix</h3>
+            <p>
+                Until now we have represented spatial coordinates as ordered triples: (x, y, z). Equivalently, we may think of points in space as three-dimensional column vectors:
+                <img src="https://latex.codecogs.com/svg.latex?\inline&space;[x&space;\;y&space;\;z]^T" title="[x \;y \;z]^T" /> . This view is convenient because certain spatial transformations may be accomplished through matrix operations. In particular,
+                any rotation can be encoded as a 3 × 3 rotation matrix. Pre-multiplying the matrix by a point will have the effect of performing the desired rotation around the origin.
+                <br>The following three matrices correspond to rotations around the x, y, z axes respectively:
+                <br>
+                <img class="center" , src="images/cap2.PNG" \>
+                <br>
+                <br><img class="center" src="https://latex.codecogs.com/svg.latex?\inline&space;\begin{align*}&space;R_z(90^0)&space;&=&space;\begin{bmatrix}&space;cos90^0&space;&-sin90^0&space;&&space;0\\&space;sin90^0&cos90^0&space;&&space;0\\&space;0&0&space;&1&space;\end{bmatrix}&space;\times\begin{bmatrix}&space;1\\&space;0\\&space;0&space;\end{bmatrix}\\&space;&=&space;\begin{bmatrix}&space;0&space;&&space;-1&space;&0&space;\\&space;1&&space;0&space;&0&space;\\&space;0&space;&&space;0&space;&1&space;\end{bmatrix}\times\begin{bmatrix}&space;1\\&space;1\\&space;0&space;\end{bmatrix}\\&space;&=&space;\begin{bmatrix}&space;0\\&space;1\\&space;0&space;\end{bmatrix}&space;\end{align*}"
+                    title="\begin{align*} R_z(90^0) &= \begin{bmatrix} cos90^0 &-sin90^0 & 0\\ sin90^0&cos90^0 & 0\\ 0&0 &1 \end{bmatrix} \times\begin{bmatrix} 1\\ 0\\ 0 \end{bmatrix}\\ &= \begin{bmatrix} 0 & -1 &0 \\ 1& 0 &0 \\ 0 & 0 &1 \end{bmatrix}\times\begin{bmatrix} 1\\ 1\\ 0 \end{bmatrix}\\ &= \begin{bmatrix} 0\\ 1\\ 0 \end{bmatrix} \end{align*}"
+                />
+                <br><br><img class="center" src="https://latex.codecogs.com/svg.latex?\inline&space;R_x(\Theta)=\begin{bmatrix}&space;1&space;&0&space;&0&space;\\&space;0&cos\Theta&space;&&space;-sin\Theta\\&space;0&&space;sin\Theta&space;&cos\Theta&space;\end{bmatrix}"
+                    title="R_x(\Theta)=\begin{bmatrix} 1 &0 &0 \\ 0&cos\Theta & -sin\Theta\\ 0& sin\Theta &cos\Theta \end{bmatrix}" />
+                <br><br><img class="center" src="https://latex.codecogs.com/svg.latex?\inline&space;R_y(\Theta)=\begin{bmatrix}&space;cos\Theta&&space;sin\Theta&&space;0\\&space;0&&space;1&space;&0&space;\\&space;-sin\Theta&&space;0&&space;cos\Theta&space;\end{bmatrix}"
+                    title="R_y(\Theta)=\begin{bmatrix} cos\Theta& sin\Theta& 0\\ 0& 1 &0 \\ -sin\Theta& 0& cos\Theta \end{bmatrix}" />
+                <br><br><img class="center" src="https://latex.codecogs.com/svg.latex?\inline&space;R_z(\Theta)=\begin{bmatrix}&space;cos\Theta&&space;-sin\Theta&&space;0\\&space;sin\Theta&space;&&space;cos\Theta&&space;0\\&space;0&&space;0&space;&&space;1&space;\end{bmatrix}"
+                    title="R_z(\Theta)=\begin{bmatrix} cos\Theta& -sin\Theta& 0\\ sin\Theta & cos\Theta& 0\\ 0& 0 & 1 \end{bmatrix}" />
+                <br>Figure shows the example of rotating the point
+                <img src="https://latex.codecogs.com/svg.latex?\inline&space;[1&space;\;0\;&space;0]^T" title="[1 \;0\; 0]^T" /> by <img src="https://latex.codecogs.com/svg.latex?\inline&space;90^0" title="90^0" /> around the z-axis.
+                <br>It is possible to represent any orienation as a product of three rotation matrices around the x, y and z axes. It is straightforward to convert from an Euler angle representation to the corresponding rotation matrix. For static rotations,
+                the three elementary rotation matrices must be multiplied in the order that the rotations should be applied.
+                <br>
+                <img class="all_fig" src="images/f1.PNG" \>
+                <br> This means that the rotation matrix that corresponds to the Euler angle rotations illustrated in above Figure would be:
+                <br><img class="center" src="https://latex.codecogs.com/svg.latex?\inline&space;R_{static}=R_x(45^0)\times&space;R_y(30^0)\times&space;R_z(75^0)" title="R_{static}=R_x(45^0)\times R_y(30^0)\times R_z(75^0)" />
+                <br>
+                <img class="all_fig" src="images/f2.PNG" \>
+                <br> For Euler angles represented using relative rotations, the order is reversed. The rotation matrix corresponding to above Figure would be:
+                <br><img class="center" src="https://latex.codecogs.com/svg.latex?\inline&space;R_{relative}=R_z(75^0)\times&space;R_y(30^0)\times&space;R_x(45^0)" title="R_{relative}=R_z(75^0)\times R_y(30^0)\times R_x(45^0)" />
+                <br>The main advantage of rotation matrices is that they provide a convenient mechasism for composing rotations and for applying rotations to a point. The downside is that this is a highly redundant represenatation. A 3 × 3 rotation matrix
+                contains 9 values, but as we saw three numbers are sufficient to represent any orientation in a three dimensional space.
+            </p>
+
+            <iframe class="all_fig" width="560" height="315" src="https://www.youtube.com/embed/Ta8cKqltPfU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+            <br><br><br>
+
+
+            <div class="next_prev">
+                <a href="cordinate_frame.html" id="prev_b">
+                    <b> <img width="10px" src="images/previous.png"/>
+           Previous</b>
+                </a>
+                <a href="Trans.html" id="next_b">
+                    <b>Next <img  width="10px" src="images/next.png"/></b>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
