@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+     <link data-vue-tag="ssr" rel="icon" type="image/png" sizes="96x96" href="images/logo.png" >
+    <title>Robotics Wikipedia</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+
+
+
+
+
+    <div class="wrapper d-flex align-items-stretch">
+
+        <nav id="sidebar">
+            <div class="p-4 pt-5 ">
+                <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(images/mL.jpeg);"></a>
+                <ul class="list-unstyled components mb-5">
+
+                    <!--Coordinate Transformation (Krutarth)-->
+                    <li>
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Coordinate Transformation </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="cordinate_frame.html">Coordinate Frames</a>
+                            </li>
+                            <li>
+                                <a href="Rot_matrix.html">Rotational Matrix</a>
+                            </li>
+                            <li>
+                                <a href="Trans.html">Transformation</a>
+                            </li>
+                            <li>
+                                <a href="translation.html">Translations</a>
+                            </li>
+                            <li>
+                                <a href="Euler.html">Euler Angles</a>
+                            </li>
+                            <li>
+                                <a href="Quat.html">Quaternion</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <!--forward kinematics (Smit)-->
+                    <li>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Forward Kinematics</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a href="Homogeneous.html">Homogeneous Transform</a>
+                            </li>
+                            <li>
+                                <a href="Compound.html"> Compound Transformations</a>
+                            </li>
+                            <li>
+                                <a href="jacobians.html">Jacobians</a>
+                            </li>
+                            <li>
+                                <a href="DH_parameters.html">Denavit-Hartenberg (D-H) Parameters</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <!--Inverse Kinematics (Dhruvik)-->
+                    <li>
+                        <a href="#Inverse_Kinematics" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inverse Kinematics</a>
+                        <ul class="collapse list-unstyled" id="Inverse_Kinematics">
+                            <li>
+                                <a href="General_dis.html">General discussion</a>
+                            </li>
+                            <li>
+                                <a href="Analytical.html">Analytical IK in 2D</a>
+                            </li>
+                            <li>
+                                <a href="find_parallel_robo.html">Finding all solutions for redundant and parallel robots</a>
+                            </li>
+                            <li>
+                                <a href="explain_video.html">Explaination Videos</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+
+            </div>
+        </nav>
+
+        <!-- Page navbar  -->
+
+
+
+
+        <div id="content" class="p-4 p-md-5 main-page smit">
+
+            <nav id="mainbar" class="navbar sticky-top navbar-expand-lg navbar-light bg-light uppernav_nanu ">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary slide_but">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu </span>
+              </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fa fa-bars"></i>
+              </button>
+                    <div class="navbar-header" style="margin-left: 25px;font-family: Arial">
+                        <a class="navbar-brand" href="#"><b>Robotics Wikipedia</b>
+                </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="home.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">About us</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!--Page content-->
+
+            <h3 id=Euler class="nav_up_sol">Euler angles</h3>
+            <p>Euler angles are a three-parameter representation of rotations <img src="https://latex.codecogs.com/svg.latex?\inline&space;(\phi&space;,\theta&space;,\psi&space;) " title="(\phi ,\theta ,\psi ) " /> , and are derived from the definitions
+                of
+                <img src="https://latex.codecogs.com/svg.latex?\inline&space;R_{X},R_{Y} " title="R_{X},R_{Y} " /> and <img src="https://latex.codecogs.com/svg.latex?\inline&space;R_{Z} " title="R_{Z} " /> above. They are one of the oldest rotation representations,
+                are easy to interpret, and are also frequently used in aeronautics and robotics. The basic idea is to select three different axes and represent the rotation as a composite of three axis-aligned rotations. The order in which axes are chosen
+                is a matter of convention.</p>
+            <h4>1. Conventions</h4>
+            <p>For example, the roll-pitch-yaw convention often used in aerospace assumes that a vehicle's roll angle is about its X axis, pitch is about its Y axis, and yaw is about its Z axis , with the composite rotation given by:
+                <br><img class="center" src="https://latex.codecogs.com/svg.latex?\inline&space;R_{rpy}(\phi,\theta,\psi)=R_{Z}(\phi)R_{Y}(\theta)R_{X}(\psi) " title="R_{rpy}(\phi,\theta,\psi)=R_{Z}(\phi)R_{Y}(\theta)R_{X}(\psi) " />
+                <br> Notice that the order of rotation axes is Z , Y , X , and this is also known as ZYX convention. (Note that in order of application, this applies roll (X) first, then pitch (Y), then yaw (Z).)
+                <br>
+                <img class="mid1_fig " src="https://motion.cs.illinois.edu/RoboticSystems/figures/modeling/roll_pitch_yaw.svg " \> Roll-pitch-yaw convention consists of a roll about the vehicle's forward direction, a pitch about its leftward direction,
+                and a yaw around its upward direction.
+                <br>
+                <br>There are a multitude of other conventions possible, each of the form (*)
+                <br><img class="center" src="https://latex.codecogs.com/svg.latex?\inline&space;R_{ABC}(\phi,\theta,\psi)=R_{A}(\phi)R_{B}(\theta)R_{C}(\psi) " title="R_{ABC}(\phi,\theta,\psi)=R_{A}(\phi)R_{B}(\theta)R_{C}(\psi) " /> <br>where A , B ,
+                and C are one of X , Y , or Z . To be a valid convention, the span of possible results from the convention must span the range of possible rotation matrices, and this means that no two subsequent axes may be the same, e.g., XXY is not
+                permissible, since two combined rotations about one axis are equivalent to a single rotation about that axis. However, A and C may indeed be the same, for example, in ZYZ convention:
+                <br><img class="center" src="https://latex.codecogs.com/svg.latex?\inline&space;R_{ZYZ}(\phi,\theta,\psi)=R_{Z}(\phi)R_{Y}(\theta)R_{Z}(\psi) " title="R_{ZYZ}(\phi,\theta,\psi)=R_{Z}(\phi)R_{Y}(\theta)R_{Z}(\psi) " /> <br>Here the intervening
+                Y rotation modifies the axis by which one of the RZ terms rotates, and can in fact span all rotation matrices.
+
+            </p>
+            <h4>2. Conversion between matrices</h4>
+            <p>
+                Conversion from Euler angles to rotation matrices is a straightforward computation of (*). The converse is more challenging and requires calculating the inverse of the forward conversion using some trigonometry.
+                <br><br>First, for the given convention we would begin by equating the matrix terms to the sine and cosine terms of the computed rotation matrix, e.g., for roll-pitch-yaw convention:
+                <br><img class="center" src="https://latex.codecogs.com/svg.latex?\inline&space;\begin{bmatrix}&space;r_{11}&r_{12}&space;&&space;r_{13}\\&space;r_{21}&r_{22}&space;&r_{23}&space;\\&space;r_{31}&r_{32}&space;&r_{33}&space;\end{bmatrix}=\begin{bmatrix}&space;c_{1}c_{2}&&space;c_{1}s_{2}s_{3}-s_{1}c_{3}&&space;s_1&space;s_3&space;&plus;&space;c_1&space;s_2&space;c_3\\&space;s_1&space;c_2&&space;c_1&space;c_3&space;&plus;&space;s_1&space;s_2&space;s_3&space;&&space;s_1&space;s_2&space;c_3&space;-&space;c_1&space;s_3&space;\\&space;s_2&space;&c_2&space;s_3&space;&&space;c_2&space;c_3&space;\end{bmatrix} "
+                    title="\begin{bmatrix} r_{11}&r_{12} & r_{13}\\ r_{21}&r_{22} &r_{23} \\ r_{31}&r_{32} &r_{33} \end{bmatrix}=\begin{bmatrix} c_{1}c_{2}& c_{1}s_{2}s_{3}-s_{1}c_{3}& s_1 s_3 + c_1 s_2 c_3\\ s_1 c_2& c_1 c_3 + s_1 s_2 s_3 & s_1 s_2
+                    c_3 - c_1 s_3 \\ s_2 &c_2 s_3 & c_2 c_3 \end{bmatrix} " /> where we use the shorthand <img src="https://latex.codecogs.com/svg.latex?\inline&space;c_1=cos\phi\;,s_1=sin\phi\;,&space;s_2=sin\theta\;,c_3=cos\psi&space;\;and&space;\;s_3=sin\psi "
+                    title="c_1=cos\phi\;,s_1=sin\phi\;, s_2=sin\theta\;,c_3=cos\psi
+                    \;and \;s_3=sin\psi " />
+                <br><br>The simplest term is in the lower left corner, so we find one of the two solutions to <img src="https://latex.codecogs.com/svg.latex?\inline&space;r_{31}=-sin\theta " title="r_{31}=-sin\theta " />, namely <img src="https://latex.codecogs.com/svg.latex?\inline&space;\theta=sin^{-1}r_{31} "
+                    title="\theta=sin^{-1}r_{31} " /> or <img src="https://latex.codecogs.com/svg.latex?\inline&space;\theta=sin^{-1}r_{31}&plus;\pi " title="\theta=sin^{-1}r_{31}+\pi " /> . We also have two possible solutions <img src="https://latex.codecogs.com/svg.latex?\inline&space;c_2=\pm&space;\sqrt{1-s_2^2} "
+                    title="c_2=\pm \sqrt{1-s_2^2} " /> . If <img src="https://latex.codecogs.com/svg.latex?\inline&space;c_2 " title="c_2 " /> is nonzero, then we can divide <img src="https://latex.codecogs.com/svg.latex?\inline&space;r_{11}
+                    " title="r_{11} " /> and <img src="https://latex.codecogs.com/svg.latex?\inline&space;r_{21} " title="r_{21} " /> by <img src="https://latex.codecogs.com/svg.latex?\inline&space;c_2 " title="c_2 " /> to obtain <img src="https://latex.codecogs.com/svg.latex?\inline&space;s_1 "
+                    title="s_1 " /> and <img src="https://latex.codecogs.com/svg.latex?\inline&space;c_1 " title="c_1 " /> , respectively, by which we can obtain <img src="https://latex.codecogs.com/svg.latex?\inline&space;\phi " title="\phi " /> via the
+                argument of <img src="https://latex.codecogs.com/svg.latex?\inline&space;(s_1,c_1) " title="(s_1,c_1) " /> . Similarly, we may derive <img src="https://latex.codecogs.com/svg.latex?\inline&space;\psi " title="\psi " /> by dividing <img
+                    src="https://latex.codecogs.com/gif.latex?r_{32} " title="r_{32} " /> and <img src="https://latex.codecogs.com/gif.latex?r_{33} " title="r_{33} " /> by <img src="https://latex.codecogs.com/gif.latex?c_{2} " title="c_{2}
+                    " /> . Finally one of the two possible solutions to <img src="https://latex.codecogs.com/svg.latex?\inline&space;\theta " title="\theta " /> can be obtained by verifying the solution to the upper right entries of the matrix.
+                <br><br>The other case to consider is when <img src="https://latex.codecogs.com/svg.latex?\inline&space;c_2 " title="c_2 " /> is zero, which indicates that the pitch is <img src="https://latex.codecogs.com/svg.latex?\inline&space;\pm&space;\pi/2 "
+                    title="\pm \pi/2 " />. If this is the case, then only <img src="https://latex.codecogs.com/svg.latex?\inline&space;r_{31} " title="r_{31} " /> and the 2×2 entries in the upper right are nonzero. This corresponds to a singular case in which
+                infinite solutions for <img src="https://latex.codecogs.com/svg.latex?\inline&space;\phi " title="\phi " /> and <img src="https://latex.codecogs.com/svg.latex?\inline&space;\psi " title="\psi
+                    " /> exist. All of these solutions have <img src="https://latex.codecogs.com/svg.latex?\inline&space;\psi&plus;\theta " title="\psi+\theta " /> equal to the argument of <img src="https://latex.codecogs.com/svg.latex?\inline&space;(-r_{12}/s_2,r_{22}/s_2) "
+                    title="(-r_{12}/s_2,r_{22}/s_2) " />.
+            </p>
+            <h4>3. Singularities, aka gimbal lock</h4>
+            <p>
+                The minimal range of Euler angles <img src="https://latex.codecogs.com/svg.latex?inline&space;(\phi,\theta,\psi) " title="(\phi,\theta,\psi) " /> to cover the span of rotations is the set <img src="https://latex.codecogs.com/svg.latex?\inline&space;[\theta,2\pi)*[-\pi/2,\pi/2]*[\theta,2\pi) "
+                    title="[\theta,2\pi)*[-\pi/2,\pi/2]*[\theta,2\pi) " /> . However, this set is not topologically equivalent to SO(3). There are certain cases in which a single rotation has an infinite number of solutions. For example, in ABA convention,
+                any pure rotation about the A axis can be represented by Euler angles with <img src="https://latex.codecogs.com/svg.latex?\inline&space;\theta=0 " title="\theta=0 " /> but infinitely many values of <img src="https://latex.codecogs.com/svg.latex?\inline&space;\phi "
+                    title="\phi " /> and <img src="https://latex.codecogs.com/svg.latex?\inline&space;\psi " title="\psi " /> with constant sum. In roll-pitch-yaw convention, pitches of <img src="https://latex.codecogs.com/svg.latex?\inline&space;\pm\pi
+                    " title="\pm\pi " /> align the roll and yaw axes, and hence when a vehicle is pointed directly upward there are an infinite number of solutions for <img src="https://latex.codecogs.com/svg.latex?\inline&space;\phi " title="\phi "
+                /> and <img src="https://latex.codecogs.com/svg.latex?\inline&space;\psi " title="\psi " /> .
+                <br><br>Cases like this are known as singular. By analogy with the gimbal mechanism which is a physical device with three rotating axes, gimbal lock. Gimbals are devices often used in gyroscopes to measure 3D orientation by means of a
+                rapidly spinning mass which maintains its absolute orientation as its cradle rotates. Gimbal lock manifests itself when two axes of the mechanism become aligned, at which point the gimbal readings become useless because most rotations
+                of the cradle fail to de-align the axes properly
+                <br>In calculations, singularities cause problems for conversions, calculating derivatives, and interpolation.
+            </p>
+            <h4>4. Inversion</h4>
+            <p>
+                The inverse of an Euler angle <img src="https://latex.codecogs.com/svg.latex?\inline&space;(\phi,\theta,\psi) " title="(\phi,\theta,\psi) " /> with convention ABC is another set of Euler angles <img src="https://latex.codecogs.com/svg.latex?\inline&space;(-\psi,-\theta,-\phi) "
+                    title="(-\psi,-\theta,-\phi) " /> with convention CBA . This is quite convenient when an ABA convention is used, because the reverse convention is the same as the forward. However, when <img src="https://latex.codecogs.com/svg.latex?\inline&space;C\neq&space;A "
+                    title="C\neq A " /> , finding the inverse Euler angles in the same convention is much less convenient, because it requires conversion to matrix form and then back to Euler angle form.
+            </p>
+            <iframe class="all_fig" width="560" height="315" src="https://www.youtube.com/embed/q0jgqeS_ACM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <br><iframe class="all_fig" width="560" height="315" src="https://www.youtube.com/embed/2Cwa6hfn2K0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            <br><br><br>
+
+            <div class="next_prev">
+                <a href="translation.html" id="prev_b">
+                    <b> <img width="10px" src="images/previous.png"/>
+                   Previous</b>
+                </a>
+                <a href="Quat.html" id="next_b">
+                    <b>Next <img  width="10px" src="images/next.png"/></b>
+                </a>
+            </div>
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+</body>
+
+</html>
