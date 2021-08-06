@@ -262,7 +262,7 @@ a[data-toggle="collapse"] {
 
 .dropdown-toggle::after {
   display: block;
-  /* position: fixed; */
+  position: fixed; 
   top: 50%;
   right: 0;
   -webkit-transform: translateY(-50%);
